@@ -55,6 +55,15 @@ void Land::SshowWindow() {
     }
 
     QVBoxLayout *marineLayout = new QVBoxLayout;
+    QLabel *marineTitle = new QLabel("Akweny:");
+    marineTitle->setStyleSheet("margin-bottom: 30");
+    marineLayout->addWidget(marineTitle);
+
+    for(Marine marine : marines) {
+
+
+
+    }
 
     //TODO: implement marine showing
 
