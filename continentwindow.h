@@ -2,6 +2,7 @@
 #define CONTINENTWINDOW_H
 
 #include <QDialog>
+#include "continent.h"
 
 namespace Ui {
 class ContinentWindow;
@@ -16,8 +17,10 @@ public:
     ~ContinentWindow();
 
 signals:
+    void sendContinent(Continent continent);
 
 private slots:
+    void SaddContinent();
 
 private:
     Ui::ContinentWindow *ui;

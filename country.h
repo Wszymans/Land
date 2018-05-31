@@ -23,9 +23,7 @@ class country {
 public:
     country(QString name, double area, Administration administration);
 
-    void showCountry();
-
-    friend std::ostream & operator<< (std::ostream &back, const country &country);
+    void showCountry();   
 
     bool operator> (const country & country);
 

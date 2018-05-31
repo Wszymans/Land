@@ -7,7 +7,7 @@ country::country(QString name, double area, Administration administration) {
         this->name = name;
         this->area = area;
         this->administration = administration;
-        this->country_id = country::NumberOfCountries;
+        this->Country_id = country::NumberOfCountries;
         country::NumberOfCountries++;
 
 }
