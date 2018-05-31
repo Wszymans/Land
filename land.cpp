@@ -15,11 +15,18 @@ Land::Land(QWidget *parent) :
     ///ADDCONTINENT BUTTON
     connect(ui->addContinentButton, SIGNAL(clicked()), this, SLOT(SaddContinent()));
 
+    ///ADDMARINE BUTTON
+    connect(ui->addMarineButton, SIGNAL(clicked()), this, SLOT(SaddMarine()));
+
     ///SHOWCONTINENT BUTTON
+    connect(ui->showButton, SIGNAL(clicked()), this, SLOT(SshowWindow()));
+
+    ///SHOWMARINE BUTTON
     connect(ui->showButton, SIGNAL(clicked()), this, SLOT(SshowWindow()));
 
     //Receiving Data:
     connect(&continentWindow, SIGNAL(sendContinent(Continent)), this, SLOT(receiveContinent(Continent)));
+    connect(&marineWindow, SIGNAL(sendMarine(Marine)), this, SLOT(receiveMarine(Marine)));
 
 }
 
@@ -28,12 +35,22 @@ void Land::receiveContinent(Continent continent) {
     continents.push_back(continent);
 }
 
+void Land::receiveMarine(Marine marine) {
+
+    marines.push_back(marine);
+
+}
+
 void Land::Sexit() {
     qApp->quit();
 }
 
 void Land::SaddContinent() {
     continentWindow.exec();
+}
+
+void Land::SaddMarine() {
+    marineWindow.exec();
 }
 
 void Land::SshowWindow() {
@@ -61,11 +78,14 @@ void Land::SshowWindow() {
 
     for(Marine marine : marines) {
 
+        QLabel *marineName = new QLabel(marine.getName());
+        QLabel *marineArea = new QLabel(QString::number(marine.getArea()));
+        marineArea->setStyleSheet("margin-bottom: 25");
 
+        marineLayout->addWidget(marineName);
+        marineLayout->addWidget(marineArea);
 
     }
-
-    //TODO: implement marine showing
 
     QVBoxLayout *layout = new QVBoxLayout;
     layout->addLayout(continentLayout);

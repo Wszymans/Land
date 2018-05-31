@@ -7,6 +7,7 @@ ContinentWindow::ContinentWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     connect(ui->buttonBox, SIGNAL(accepted()), this, SLOT(SaddContinent()));
+
 }
 
 void ContinentWindow::SaddContinent() {
@@ -17,7 +18,6 @@ void ContinentWindow::SaddContinent() {
    Continent thisContinent = Continent(name, area);
 
    emit sendContinent(thisContinent); //wysylam sygnal z thisContinent
-
 
 }
 

@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "continent.h"
+#include "marine.h"
 
 namespace Ui {
 class ContinentWindow;

@@ -3,11 +3,11 @@
 
 #include <QString>
 
-class marine {
+class Marine {
 
 public:
-    marine(QString name = "Default", double area = 200);
-    marine(const marine &marine);
+    Marine(QString name = "Default", double area = 200);
+    Marine(const Marine &Marine);
 
     QString getName() const;
     double getArea() const;
