@@ -144,7 +144,7 @@
       </widget>
      </item>
      <item row="3" column="0">
-      <widget class="QPushButton" name="pushButton_5">
+      <widget class="QPushButton" name="showButton">
        <property name="minimumSize">
         <size>
          <width>250</width>
@@ -186,7 +186,7 @@
      <x>0</x>
      <y>0</y>
      <width>648</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>

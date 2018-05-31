@@ -5,6 +5,7 @@
 #include "continentwindow.h"
 #include "continent.h"
 #include <QVector>
+#include <QWidget>
 
 namespace Ui {
 class Land;
@@ -18,15 +19,21 @@ public:
     explicit Land(QWidget *parent = 0);
     ~Land();
 
+public slots:
+    void reciveContinent(Continent continent);
+
 private slots:
-    void exit();
-    void addContinent();
+
+    void SshowWindow();
+    void Sexit();
+    void SaddContinent();
 
 private:
     Ui::Land *ui;
     QVector<Continent> continents;
 
     //Dialog Windows
+    QDialog showWindow;
     ContinentWindow continentWindow;
 
 };
