@@ -3,19 +3,21 @@
 
 #include <QString>
 
-enum Diet {
-carnivorous,
-parasite,
-photosynthesis
-};
 
-class plant {
+
+class Plant {
+
+    enum Diet {
+    carnivorous,
+    parasite,
+    photosynthesis
+    };
 
 public:
-    plant();
-    plant(QString species, bool edibility, Diet diet);
-    plant(QString species);
-    plant(const plant &plant);
+    Plant();
+    Plant(QString species, bool edibility, Diet diet);
+    Plant(QString species);
+    Plant(const Plant &plant);
 
 private:
         QString species;

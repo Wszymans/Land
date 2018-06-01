@@ -1,7 +1,7 @@
 #include "marinewindow.h"
 #include "ui_marinewindow.h"
 
-    marinewindow::marinewindow(QWidget *parent) :
+    MarineWindow::MarineWindow(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::MarineWindow) {
 

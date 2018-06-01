@@ -3,16 +3,18 @@
 
 #include <QString>
 
-enum Diet {
-
-    carnivorous,
-    herbivorous,
-    omnivorous
-
-};
 
 class Animal
 {
+
+    enum Diet {
+
+        carnivorous,
+        herbivorous,
+        omnivorous
+
+    };
+
 public:
     Animal();
     Animal(QString species);
