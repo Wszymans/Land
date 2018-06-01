@@ -1,28 +1,28 @@
 #include "country.h"
 
-unsigned int country::NumberOfCountries = 0;
+unsigned int Country::NumberOfCountries = 0;
 
-country::country(QString name, double area, Administration administration) {
+Country::Country(QString name, double area, Administration administration) {
 
         this->name = name;
         this->area = area;
         this->administration = administration;
-        this->Country_id = country::NumberOfCountries;
-        country::NumberOfCountries++;
+        this->Country_id = Country::NumberOfCountries;
+        Country::NumberOfCountries++;
 
 }
 
 
 
-bool country::operator> (const country & country) {
+bool Country::operator> (const Country & country) {
      return country.area>this->area;
 }
 
-QString country::getName() {
+QString Country::getName() {
     return name;
   }
 
-country& country::operator+=(const country& country) {
+Country& Country::operator+=(const Country & country) {
    this->area += country.area;
    return *this;
 }

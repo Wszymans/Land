@@ -39,7 +39,7 @@ private:
     //Dialog Windows
     ContinentWindow continentWindow;
     MarineWindow marineWindow;
-    QDialog showWindow;
+    QDialog *showWindow;
 
 
 };

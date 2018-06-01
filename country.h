@@ -10,7 +10,7 @@ enum Administration {
   republic
 };
 
-class country {
+class Country {
 
       friend class continent;
       static unsigned int NumberOfCountries;
@@ -21,13 +21,13 @@ class country {
       unsigned int Country_id;
 
 public:
-    country(QString name, double area, Administration administration);
+    Country(QString name, double area, Administration administration);
 
     void showCountry();   
 
-    bool operator> (const country & country);
+    bool operator> (const Country & Country);
 
-    country& operator+=(const country& country);
+    Country& operator+=(const Country& Country);
     QString getName();
 
 

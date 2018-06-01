@@ -33,7 +33,8 @@ SOURCES += \
     plant.cpp \
     marine.cpp \
     country.cpp \
-    marinewindow.cpp
+    marinewindow.cpp \
+    continenteditwindow.cpp
 
 HEADERS += \
         land.h \
@@ -44,9 +45,11 @@ HEADERS += \
     plant.h \
     marine.h \
     country.h \
-    marinewindow.h
+    marinewindow.h \
+    continenteditwindow.h
 
 FORMS += \
         land.ui \
     continentwindow.ui \
-    marinewindow.ui
+    marinewindow.ui \
+    continenteditwindow.ui

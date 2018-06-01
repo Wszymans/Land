@@ -18,10 +18,7 @@ Land::Land(QWidget *parent) :
     ///ADDMARINE BUTTON
     connect(ui->addMarineButton, SIGNAL(clicked()), this, SLOT(SaddMarine()));
 
-    ///SHOWCONTINENT BUTTON
-    connect(ui->showButton, SIGNAL(clicked()), this, SLOT(SshowWindow()));
-
-    ///SHOWMARINE BUTTON
+    ///SHOWTERRITORIES BUTTON
     connect(ui->showButton, SIGNAL(clicked()), this, SLOT(SshowWindow()));
 
     //Receiving Data:
@@ -54,6 +51,8 @@ void Land::SaddMarine() {
 }
 
 void Land::SshowWindow() {
+
+    showWindow = new QDialog();
 
     QVBoxLayout *continentLayout = new QVBoxLayout;
     QLabel *continentTitle = new QLabel("Kontynenty:");
@@ -91,8 +90,8 @@ void Land::SshowWindow() {
     layout->addLayout(continentLayout);
     layout->addLayout(marineLayout);
 
-    showWindow.setLayout(layout);
-    showWindow.exec();
+    showWindow->setLayout(layout);
+    showWindow->exec();
 
 }
 

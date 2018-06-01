@@ -2,8 +2,10 @@
 #define CONTINENT_H
 
 #include <QString>
+#include "territory.h"
+#include "country.h"
 
-class Continent
+class Continent : public Territory
 {
 public:
     Continent(QString name = "Default", double area = 100);
@@ -13,6 +15,7 @@ public:
     double getArea() const;
 
 private:
+    QVector<Country> countries;
     double area;
     QString name;
 };
