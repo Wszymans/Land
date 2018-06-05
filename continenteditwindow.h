@@ -18,7 +18,13 @@ public:
     void reciveContinents(QVector<Continent> recivedContinents);
     ~ContinentEditWindow();
 
+private slots:
+    void SChangedComboBox(int index);
+
 private:
+
+    void editValues(int index);
+
     Ui::ContinentEditWindow *ui;
     QVector<Continent> continents;
 };
