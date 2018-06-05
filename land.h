@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "continentwindow.h"
+#include "continenteditwindow.h"
 #include "marinewindow.h"
 #include "continent.h"
 #include "marine.h"
@@ -30,6 +31,7 @@ private slots:
     void SaddContinent();
     void SshowWindow();
     void SaddMarine();
+    void SeditContinent();
 
 private:
     Ui::Land *ui;
@@ -37,6 +39,7 @@ private:
     QVector<Marine> marines;
 
     //Dialog Windows
+    ContinentEditWindow continentEditWindow;
     ContinentWindow continentWindow;
     MarineWindow marineWindow;
     QDialog *showWindow;

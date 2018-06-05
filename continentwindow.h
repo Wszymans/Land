@@ -13,6 +13,7 @@ class ContinentWindow : public QDialog
 {
     Q_OBJECT
 
+
 public:
     explicit ContinentWindow(QWidget *parent = 0);
     ~ContinentWindow();

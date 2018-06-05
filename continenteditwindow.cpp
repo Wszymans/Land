@@ -8,7 +8,23 @@ ContinentEditWindow::ContinentEditWindow(QWidget *parent) :
     ui->setupUi(this);
 }
 
+void ContinentEditWindow::reciveContinents(QVector<Continent> recivedContinents) {
+    continents.clear();
+    ui->ContinentcombBox->clear();
+    continents = recivedContinents;
+    for(Continent continent : continents) {
+        ui->ContinentcombBox->addItem(continent.getName());
+    }
+
+    QString test = ui->ContinentcombBox->currentText();
+
+    ui->NewContinentName->setText(test);
+
+}
+
 ContinentEditWindow::~ContinentEditWindow()
 {
     delete ui;
+    continents.clear();
+    ui->ContinentcombBox->clear();
 }

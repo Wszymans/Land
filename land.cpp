@@ -21,6 +21,9 @@ Land::Land(QWidget *parent) :
     ///SHOWTERRITORIES BUTTON
     connect(ui->showButton, SIGNAL(clicked()), this, SLOT(SshowWindow()));
 
+    ///EDITCONTINENT BUTTOn
+    connect(ui->editContinentButton, SIGNAL(clicked()), this, SLOT(SeditContinent()));
+
     //Receiving Data:
     connect(&continentWindow, SIGNAL(sendContinent(Continent)), this, SLOT(receiveContinent(Continent)));
     connect(&marineWindow, SIGNAL(sendMarine(Marine)), this, SLOT(receiveMarine(Marine)));
@@ -48,6 +51,12 @@ void Land::SaddContinent() {
 
 void Land::SaddMarine() {
     marineWindow.exec();
+}
+
+
+void Land::SeditContinent() {
+    continentEditWindow.reciveContinents(this->continents);
+    continentEditWindow.exec();
 }
 
 void Land::SshowWindow() {
