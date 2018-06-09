@@ -15,7 +15,7 @@ public:
     double getArea() const;
 
 private:
-    QVector<Country> countries;
+
     double area;
     QString name;
 };

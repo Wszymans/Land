@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>ContinentEditWindow</class>
- <widget class="QDialog" name="ContinentEditWindow">
+ <class>AddCountryWindow</class>
+ <widget class="QDialog" name="AddCountryWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -29,83 +29,67 @@
     <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
    </property>
   </widget>
-  <widget class="QComboBox" name="ContinentCombBox">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>30</y>
-     <width>281</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>10</y>
-     <width>211</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Wybierz kontynent do edycji</string>
-   </property>
-  </widget>
   <widget class="QWidget" name="gridLayoutWidget">
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>80</y>
+     <y>0</y>
      <width>401</width>
-     <height>111</height>
+     <height>231</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
-    <property name="leftMargin">
-     <number>10</number>
-    </property>
-    <property name="topMargin">
-     <number>10</number>
-    </property>
-    <property name="rightMargin">
-     <number>10</number>
-    </property>
-    <property name="bottomMargin">
-     <number>10</number>
-    </property>
-    <item row="0" column="1">
-     <widget class="QLineEdit" name="NewContinentName"/>
-    </item>
-    <item row="0" column="0">
-     <widget class="QLabel" name="label_2">
-      <property name="text">
-       <string>Nazwa</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="1">
-     <widget class="QLineEdit" name="NewContinentArea"/>
-    </item>
-    <item row="1" column="0">
-     <widget class="QLabel" name="label_3">
-      <property name="text">
-       <string>Rozmiar</string>
-      </property>
-     </widget>
+    <item row="3" column="0">
+     <widget class="QLineEdit" name="CountryAreaButton"/>
     </item>
     <item row="2" column="0">
-     <widget class="QLabel" name="label_4">
+     <widget class="QLabel" name="label_2">
       <property name="text">
-       <string>Kraj</string>
+       <string>Podaj obszar</string>
       </property>
      </widget>
     </item>
-    <item row="2" column="1">
-     <widget class="QPushButton" name="AddNewCountryButton">
+    <item row="0" column="0">
+     <widget class="QLabel" name="label">
       <property name="text">
-       <string>Dodaj</string>
+       <string>Podaj nazwe</string>
       </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLineEdit" name="CountryNameButton"/>
+    </item>
+    <item row="4" column="0">
+     <widget class="QGroupBox" name="AdministrationBox">
+      <property name="title">
+       <string>Wybierz administracje</string>
+      </property>
+      <widget class="QRadioButton" name="DemocracyButton">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>399</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Demokracja</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="RepublicButton">
+       <property name="geometry">
+        <rect>
+         <x>110</x>
+         <y>20</y>
+         <width>399</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Republika</string>
+       </property>
+      </widget>
      </widget>
     </item>
    </layout>
@@ -116,7 +100,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>ContinentEditWindow</receiver>
+   <receiver>AddCountryWindow</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -132,7 +116,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
-   <receiver>ContinentEditWindow</receiver>
+   <receiver>AddCountryWindow</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

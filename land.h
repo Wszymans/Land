@@ -8,6 +8,7 @@
 #include "marine.h"
 #include <QVector>
 #include <QWidget>
+#include "continenteditwindow.h"
 
 namespace Ui {
 class Land;
@@ -24,12 +25,13 @@ public:
 public slots:
     void receiveContinent(Continent continent);
     void receiveMarine(Marine marine);
-
+    
 private slots:
     void Sexit();
     void SaddContinent();
     void SshowWindow();
     void SaddMarine();
+    void SContinentEditWindow();
 
 private:
     Ui::Land *ui;
@@ -40,6 +42,7 @@ private:
     ContinentWindow continentWindow;
     MarineWindow marineWindow;
     QDialog *showWindow;
+    ContinentEditWindow continentEditWindow;
 
 
 };
