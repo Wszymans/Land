@@ -25,9 +25,18 @@ Land::Land(QWidget *parent) :
     connect(ui->EditContinentButton, SIGNAL(clicked()), this, SLOT(SContinentEditWindow()));
 
     //Receiving Data:
+    connect(&continentEditWindow, SIGNAL(sendCountry(Country)), this, SLOT(reciveCountry(Country)));
     connect(&continentWindow, SIGNAL(sendContinent(Continent)), this, SLOT(receiveContinent(Continent)));
     connect(&marineWindow, SIGNAL(sendMarine(Marine)), this, SLOT(receiveMarine(Marine)));
+    connect(&continentEditWindow, SIGNAL(returnContinents(QVector<Continent>)), this, SLOT(reciveContinents(QVector<Continent>)));
+}
 
+void Land::reciveCountry(Country country) {
+  continents[0].addCountry(country);
+}
+
+void Land::reciveContinents(QVector<Continent> myContinents) {
+    continents = myContinents;
 }
 
 void Land::receiveContinent(Continent continent) {
@@ -54,7 +63,17 @@ void Land::SaddMarine() {
 }
 
 void Land::SContinentEditWindow() {
-    
+
+
+    if(continents.length() == 0) {
+        QMessageBox msgBox;
+        msgBox.setText("Nie dodano jeszcze, żadnego kontynentu");
+        msgBox.setIcon(QMessageBox::Warning);
+        msgBox.exec();
+        return;
+    }
+
+
     continentEditWindow.receiveContinents(this->continents);
 
     continentEditWindow.exec();
@@ -66,19 +85,39 @@ void Land::SshowWindow() {
 
     showWindow = new QDialog();
 
+    showWindow->setFixedSize(400, 600);
+
     QVBoxLayout *continentLayout = new QVBoxLayout;
     QLabel *continentTitle = new QLabel("Kontynenty:");
     continentTitle->setStyleSheet("margin-bottom: 30");
     continentLayout->addWidget(continentTitle);
 
+
     for(Continent continent : continents) {
 
         QLabel *continentName = new QLabel(continent.getName());
         QLabel *continentArea = new QLabel(QString::number(continent.getArea()));
-        continentArea->setStyleSheet("margin-bottom: 25");
+        QLabel *continentImage = new QLabel();
+        if (continent.getImage().isNull()) {
+            QPixmap pix = QPixmap(Continent::defaultImagePath);
+            continentImage->setPixmap(pix);
+        } else {
+            continentImage->setPixmap(continent.getImage().scaled(200,150,Qt::KeepAspectRatio));
+        }
 
+        continentArea->setStyleSheet("margin-bottom: 15");
         continentLayout->addWidget(continentName);
         continentLayout->addWidget(continentArea);
+        continentLayout->addWidget(continentImage);
+
+        for(Country country : continent.getCountries()) {
+
+            QLabel *countryName = new QLabel(country.getName());
+            continentLayout->addWidget(countryName);
+        }
+
+        continentArea->setStyleSheet("margin-bottom: 25");
+
 
     }
 
@@ -101,7 +140,6 @@ void Land::SshowWindow() {
     QVBoxLayout *layout = new QVBoxLayout;
     layout->addLayout(continentLayout);
     layout->addLayout(marineLayout);
-
     showWindow->setLayout(layout);
     showWindow->exec();
 

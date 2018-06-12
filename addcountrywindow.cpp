@@ -19,18 +19,19 @@ void AddCountryWindow::addCountry() {
 
     QString name = ui->CountryNameButton->text();
     double area = ui->CountryAreaButton->text().toDouble();
-    Administration administration;
+    Administration administration = democracy;
 
     if(ui->RepublicButton->isChecked()) {
 
         administration = republic;
 
-    } else if(ui->DemocracyButton->isChecked()) {
+    } else if (ui->DemocracyButton->isChecked()) {
 
         administration = democracy;
 
     } else {
 
+        administration = democracy;
         //TODO: THROW ERROR
 
     }

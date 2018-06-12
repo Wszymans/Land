@@ -12,8 +12,6 @@ Country::Country(QString name, double area, Administration administration) {
 
 }
 
-
-
 bool Country::operator> (const Country & country) {
      return country.area>this->area;
 }

@@ -5,6 +5,10 @@
 #include <QVector>
 #include "continent.h"
 #include "addcountrywindow.h"
+#include <QPixmap>
+#include <QDirIterator>
+#include <QMap>
+#include <QMessageBox>
 
 namespace Ui {
 class ContinentEditWindow;
@@ -19,12 +23,17 @@ public:
     ~ContinentEditWindow();
     void receiveContinents(QVector<Continent> receiveContinents);
 
+signals:
+    void returnContinents(QVector<Continent> myContinents);
+    void sendCountry(Country country);
 public slots:
     void SreceiveCountry(Country country);
 
 private slots:
     void SchangedComboBox(int index);
     void SaddCountryWindow();
+    void SsendContinents();
+    void SchangeImage(int index);
 
 private:
     Ui::ContinentEditWindow *ui;
@@ -32,6 +41,9 @@ private:
     void editValues(int index);
 
     AddCountryWindow addCountryWindow;
+    int currentIndex;
+
+    QMap<int, QString> imageMap;
 
 };
 

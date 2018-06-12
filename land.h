@@ -9,6 +9,8 @@
 #include <QVector>
 #include <QWidget>
 #include "continenteditwindow.h"
+#include <QMessageBox>
+#include <QScrollArea>
 
 namespace Ui {
 class Land;
@@ -25,6 +27,8 @@ public:
 public slots:
     void receiveContinent(Continent continent);
     void receiveMarine(Marine marine);
+    void reciveContinents(QVector<Continent> myContinents);
+    void reciveCountry(Country country);
     
 private slots:
     void Sexit();

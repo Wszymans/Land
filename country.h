@@ -21,8 +21,7 @@ class Country {
       unsigned int Country_id;
 
 public:
-    Country(QString name, double area, Administration administration);
-
+    Country(QString name = "defaultName", double area = 20, Administration administration = democracy);
     void showCountry();   
 
     bool operator> (const Country & Country);
